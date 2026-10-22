@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10151d">
+  <meta name="description" content="اختبار تفاعلي في أساسيات الخوارزميات وC++ — 25 سؤالاً لقياس الفهم والتطبيق.">
+  <title>AM4 | اختبار الخوارزميات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="AM4 الصفحة الرئيسية">
+      <span class="brand-mark">A<span>4</span></span>
+      <span class="brand-copy"><strong>AM4</strong><small>ALGORITHMS LAB</small></span>
+    </a>
+    <div class="top-meta"><span class="status-dot"></span><span>اختبار تفاعلي</span><span class="meta-divider"></span><span>25 سؤالاً</span></div>
+  </header>
+
+  <main class="shell">
+    <section id="welcome-screen" class="welcome-screen">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> THINK · TRACE · SOLVE</div>
+        <h1>اختبر فهمك.<br><span>اكتب بثقة.</span></h1>
+        <p class="hero-description">تحدٍّ تفاعلي يغطي أساسيات C++، والعمليات الحسابية، وأولوية التنفيذ، والزيادة السابقة واللاحقة، والجمل الشرطية.</p>
+        <div class="feature-row">
+          <div class="feature"><span class="feature-icon">01</span><div><strong>25 سؤالاً</strong><small>تدرّج في الأفكار</small></div></div>
+          <div class="feature"><span class="feature-icon">02</span><div><strong>100 درجة</strong><small>4 درجات لكل سؤال</small></div></div>
+          <div class="feature"><span class="feature-icon">03</span><div><strong>نتيجة مفصّلة</strong><small>مع مراجعة الإجابات</small></div></div>
+        </div>
+      </div>
+      <div class="start-card">
+        <div class="card-kicker">YOUR SESSION <span>01 / 01</span></div>
+        <div class="card-symbol">&lt;<span>/</span>&gt;</div>
+        <h2>ابدأ التحدّي</h2>
+        <p>أدخل اسمك كما تريد أن يظهر في صفحة النتيجة، ثم استعد للتركيز.</p>
+        <form id="start-form">
+          <label for="student-name">الاسم الكامل</label>
+          <input id="student-name" name="student-name" type="text" maxlength="45" placeholder="اكتب اسمك هنا..." autocomplete="name" required>
+          <p class="input-error" id="name-error" aria-live="polite"></p>
+          <button class="button button-primary button-full" type="submit">ابدأ الاختبار <span class="button-arrow">←</span></button>
+        </form>
+        <div class="card-foot"><span class="lock-icon">◇</span> لا تحتاج إلى إنشاء حساب</div>
+      </div>
+    </section>
+
+    <section id="quiz-screen" class="quiz-screen hidden" aria-live="polite">
+      <div class="quiz-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> KNOWLEDGE CHECK</div><h2>حان وقت التطبيق<span class="accent-dot">.</span></h2></div>
+        <div class="timer-box"><span class="timer-label">الوقت المتبقي</span><strong id="timer">45:00</strong></div>
+      </div>
+      <div class="progress-area">
+        <div class="progress-labels"><span id="progress-text">السؤال 1 من 25</span><span id="answered-text">تمت الإجابة عن 0</span></div>
+        <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+      </div>
+      <div class="quiz-layout">
+        <article class="question-card">
+          <div class="question-top"><span id="question-category" class="category-pill">أساسيات C++</span><span id="question-points" class="points">4 درجات</span></div>
+          <h3 id="question-text">نص السؤال</h3>
+          <pre id="question-code" class="code-panel hidden"><code></code></pre>
+          <div id="options-list" class="options-list"></div>
+          <div class="question-actions">
+            <button id="prev-btn" class="button button-quiet" type="button">السابق</button>
+            <div class="action-right"><span class="keyboard-hint">اختر إجابة واحدة</span><button id="next-btn" class="button button-primary" type="button">التالي <span class="button-arrow">←</span></button></div>
+          </div>
+        </article>
+        <aside class="question-nav">
+          <div class="nav-title"><strong>خريطة الأسئلة</strong><small>اضغط للانتقال</small></div>
+          <div id="question-grid" class="question-grid"></div>
+          <div class="legend"><span><i class="legend-current"></i> الحالي</span><span><i class="legend-answered"></i> تمت الإجابة</span></div>
+          <button id="finish-btn" class="button button-outline button-full" type="button">إنهاء وتسليم الاختبار</button>
+          <p class="submit-note">يمكنك مراجعة إجاباتك قبل التسليم.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="result-screen" class="result-screen hidden">
+      <div class="result-hero">
+        <div class="result-orbit"><div class="result-medal"><span id="result-emoji">✓</span></div></div>
+        <div class="eyebrow"><span class="eyebrow-line"></span> SESSION COMPLETE</div>
+        <h2 id="result-title">أحسنت، اكتمل التحدّي!</h2>
+        <p id="result-subtitle" class="result-subtitle"></p>
+        <div class="score-card">
+          <div class="score-main"><strong id="score-number">0</strong><span>/ 100</span></div>
+          <div class="score-divider"></div>
+          <div class="score-detail"><strong id="score-percent">0%</strong><small>النسبة المئوية</small></div>
+          <div class="score-divider"></div>
+          <div class="score-detail"><strong id="correct-count">0/25</strong><small>إجابات صحيحة</small></div>
+        </div>
+      </div>
+      <div class="review-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> ANSWER REVIEW</div><h3>مراجعة الإجابات</h3></div><span class="review-count" id="review-count">25 سؤالاً</span></div>
+      <div id="review-list" class="review-list"></div>
+      <div class="result-actions"><button id="restart-btn" class="button button-primary" type="button">إعادة الاختبار ↻</button><button id="print-btn" class="button button-outline" type="button">طباعة النتيجة</button></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-line"></div>
+    <div class="footer-inner"><span>BUILT FOR CURIOUS MINDS.</span><span class="signature">Designed &amp; Developed by <strong>Ammar Mohammad</strong></span><span>AM4 © <span id="year"></span></span></div>
+  </footer>
+  <div id="confirm-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card"><div class="modal-icon">?</div><h3 id="modal-title">هل تريد تسليم الاختبار؟</h3><p id="modal-message">بقيت بعض الأسئلة دون إجابة.</p><div class="modal-actions"><button id="cancel-submit" class="button button-quiet" type="button">متابعة الاختبار</button><button id="confirm-submit" class="button button-primary" type="button">تسليم الآن</button></div></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
